@@ -12,6 +12,6 @@ public abstract class BaseController {
 	@ExceptionHandler(value = { Exception.class })
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
 	public ResponseEntity<Message> handleException(Exception exception) {
-		return new ResponseEntity<Message>(new Message(), HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<Message>(Message.Builder.error(exception.getMessage()).code(HttpStatus.BAD_REQUEST.value()).build(), HttpStatus.BAD_REQUEST);
 	}
 }

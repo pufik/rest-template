@@ -15,12 +15,18 @@
 	<mvc:annotation-driven>
 		<mvc:message-converters>
 			<ref bean="jsonMessageConverter" />
+			<ref bean="xmlMessageConverter" />
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 
 	<bean id="jsonMessageConverter"
 		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-		<property name="prettyPrint" value="${rest.api.json.pretty}" />
+		<property name="prettyPrint" value="${rest.api.output.pretty}" />
+	</bean>
+
+	<bean id="xmlMessageConverter"
+		class="org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter">
+		<property name="prettyPrint" value="${rest.api.output.pretty}" />
 	</bean>
 
 </beans>
