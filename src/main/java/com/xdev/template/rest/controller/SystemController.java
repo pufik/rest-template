@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.xdev.template.rest.resource.Message;
@@ -18,7 +17,7 @@ public class SystemController extends BaseController {
 
 	private static final Logger LOG = LoggerFactory.getLogger(SystemController.class);
 
-	@RequestMapping(value = "/error", method = RequestMethod.GET)
+	@RequestMapping(value = "/error")
 	public ResponseEntity<Message> handleError(HttpServletRequest request) {
 		Throwable error = (Throwable) (request.getAttribute(RequestDispatcher.ERROR_EXCEPTION));
 		String errorMessage = String.valueOf(request.getAttribute(RequestDispatcher.ERROR_MESSAGE));
