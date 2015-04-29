@@ -9,11 +9,8 @@ public abstract class Resource {
 
 	public abstract String getUri();
 
-	public Resource() {
-		links.add(new Link(Link.SELF, getUri()));
-	}
-
 	public Set<Link> getLinks() {
+		links.add(new Link(Link.SELF, getUri()));
 		return links;
 	}
 
